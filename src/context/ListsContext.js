@@ -1,5 +1,5 @@
 import { createContext, useCallback, useReducer } from "react";
-import useDataFetching from "../hooks/useDataFetching";
+// import useDataFetching from "../hooks/useDataFetching";
 
 export const ListsContext = createContext();
 
@@ -49,7 +49,7 @@ export const ListsContextProvider = ({ children }) => {
     } catch (e) {
       dispatch({ type: "GET_LISTS_ERROR", payload: e.message });
     }
-  });
+  }, []);
 
   return (
     <ListsContext.Provider value={{ ...state, fetchLists }}>
